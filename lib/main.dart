@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/input_page.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +15,7 @@ class BMICalculator extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: xiketicColor,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: xiketicColor,
         ),
         scaffoldBackgroundColor: xiketicColor,

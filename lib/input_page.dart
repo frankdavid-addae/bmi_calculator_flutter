@@ -1,5 +1,10 @@
 import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/custom_icon_content.dart';
+import 'package:bmi_calculator/reusable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+const bottomContainerHeight = 80.0;
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -21,68 +26,55 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: spaceCadetColor,
+                  child: ReusableCard(
+                    cardColor: spaceCadetColor,
+                    cardChild: CustomIconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: spaceCadetColor,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: spaceCadetColor,
+                  child: ReusableCard(
+                    cardColor: spaceCadetColor,
+                    cardChild: CustomIconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
                     ),
                   ),
                 ),
               ],
             ),
           ),
+          const Expanded(
+            child: ReusableCard(
+              cardColor: spaceCadetColor,
+            ),
+          ),
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: spaceCadetColor,
-                    ),
+                  child: ReusableCard(
+                    cardColor: spaceCadetColor,
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: spaceCadetColor,
-                    ),
+                  child: ReusableCard(
+                    cardColor: spaceCadetColor,
                   ),
                 ),
               ],
             ),
+          ),
+          Container(
+            color: amaranthColor,
+            margin: const EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: bottomContainerHeight,
           ),
         ],
       ),
