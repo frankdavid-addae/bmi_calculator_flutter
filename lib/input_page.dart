@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const bottomContainerHeight = 80.0;
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -17,10 +18,9 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColor = xiketicColorDarker;
   Color femaleCardColor = xiketicColorDarker;
 
-  // 1 = male, 2 = female
-  void updateColor(int gender) {
+  void updateColor(Gender selectedGender) {
     // male card was pressed
-    if (gender == 1) {
+    if (selectedGender == Gender.male) {
       femaleCardColor = xiketicColorDarker;
       maleCardColor = maleCardColor == xiketicColorDarker
           ? spaceCadetColor
@@ -50,7 +50,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      setState(() => updateColor(1));
+                      setState(() => updateColor(Gender.male));
                     },
                     child: ReusableCard(
                       cardColor: maleCardColor,
@@ -64,7 +64,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      setState(() => updateColor(2));
+                      setState(() => updateColor(Gender.female));
                     },
                     child: ReusableCard(
                       cardColor: femaleCardColor,
