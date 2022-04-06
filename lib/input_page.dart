@@ -15,24 +15,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = xiketicColorDarker;
-  Color femaleCardColor = xiketicColorDarker;
-
-  void updateColor(Gender selectedGender) {
-    // male card was pressed
-    if (selectedGender == Gender.male) {
-      femaleCardColor = xiketicColorDarker;
-      maleCardColor = maleCardColor == xiketicColorDarker
-          ? spaceCadetColor
-          : xiketicColorDarker;
-    } else {
-      // female card was pressed
-      maleCardColor = xiketicColorDarker;
-      femaleCardColor = femaleCardColor == xiketicColorDarker
-          ? spaceCadetColor
-          : xiketicColorDarker;
-    }
-  }
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +33,12 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      setState(() => updateColor(Gender.male));
+                      setState(() => selectedGender = Gender.male);
                     },
                     child: ReusableCard(
-                      cardColor: maleCardColor,
+                      cardColor: selectedGender == Gender.male
+                          ? spaceCadetColor
+                          : xiketicColorDarker,
                       cardChild: const CustomIconContent(
                         icon: FontAwesomeIcons.mars,
                         label: 'MALE',
@@ -64,10 +49,12 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      setState(() => updateColor(Gender.female));
+                      setState(() => selectedGender = Gender.female);
                     },
                     child: ReusableCard(
-                      cardColor: femaleCardColor,
+                      cardColor: selectedGender == Gender.female
+                          ? spaceCadetColor
+                          : xiketicColorDarker,
                       cardChild: const CustomIconContent(
                         icon: FontAwesomeIcons.venus,
                         label: 'FEMALE',
