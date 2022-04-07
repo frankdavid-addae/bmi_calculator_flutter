@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/custom_icon_content.dart';
+import 'package:bmi_calculator/results_screen.dart';
 import 'package:bmi_calculator/reusable_card.dart';
 import 'package:bmi_calculator/round_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -8,14 +9,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 const bottomContainerHeight = 70.0;
 enum Gender { male, female }
 
-class InputPage extends StatefulWidget {
-  const InputPage({Key? key}) : super(key: key);
+class InputScreen extends StatefulWidget {
+  const InputScreen({Key? key}) : super(key: key);
 
   @override
-  State<InputPage> createState() => _InputPageState();
+  State<InputScreen> createState() => _InputScreenState();
 }
 
-class _InputPageState extends State<InputPage> {
+class _InputScreenState extends State<InputScreen> {
   Gender? selectedGender;
   int height = 180;
   int weight = 60;
@@ -180,11 +181,25 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kAmaranthColor,
-            margin: const EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: bottomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsScreen(),
+                ),
+              );
+            },
+            child: Container(
+              color: kAmaranthColor,
+              margin: const EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: bottomContainerHeight,
+              child: const Text(
+                'CALCULATE',
+                style: kLabelTextStyle,
+              ),
+            ),
           ),
         ],
       ),
